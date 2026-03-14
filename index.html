@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unsere Hochzeit</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter, sans-serif;
+background:#faf8f4;
+color:#333;
+line-height:1.6;
+}
+
+section{
+padding:80px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+h1,h2{
+font-family:"Playfair Display", serif;
+font-weight:600;
+}
+
+h1{
+font-size:3rem;
+}
+
+h2{
+font-size:2rem;
+margin-bottom:25px;
+text-align:center;
+}
+
+p{
+margin-bottom:15px;
+}
+
+.hero{
+height:90vh;
+background:url("hero.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.35);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:1.2rem;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+margin-bottom:30px;
+}
+
+.timeline{
+border-left:2px solid #d6cfc2;
+padding-left:25px;
+}
+
+.timeline div{
+margin-bottom:20px;
+}
+
+.timeline span{
+font-weight:600;
+color:#7d8a74;
+}
+
+.couple{
+text-align:center;
+max-width:700px;
+margin:auto;
+}
+
+.witnesses{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.witness{
+text-align:center;
+}
+
+.info-list{
+list-style:none;
+}
+
+.info-list li{
+margin-bottom:10px;
+}
+
+.rsvp{
+text-align:center;
+}
+
+button{
+background:#7d8a74;
+border:none;
+padding:12px 25px;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#6b7662;
+}
+
+footer{
+text-align:center;
+padding:40px;
+font-size:14px;
+color:#777;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.witnesses{
+grid-template-columns:1fr;
+}
+
+}
+
+.fade{
+opacity:0;
+transform:translateY(20px);
+transition:all 0.8s ease;
+}
+
+.fade.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Anna & Max</h1>
+<p>12. Juni 2027</p>
+<p>Wir freuen uns sehr, diesen besonderen Tag mit euch zu feiern.</p>
+</div>
+</section>
+
+<section class="fade">
+
+<h2>Hochzeitsdetails</h2>
+
+<div class="card">
+
+<p><strong>Location:</strong> Gutshof Sonnental</p>
+<p><strong>Adresse:</strong> Sonnenweg 10, 12345 Musterstadt</p>
+<p><strong>Beginn:</strong> 14:00 Uhr</p>
+
+<p>
+<a href="#" target="_blank">Google Maps öffnen</a>
+</p>
+
+</div>
+
+</section>
+
+<section class="fade">
+
+<h2>Tagesablauf</h2>
+
+<div class="card timeline">
+
+<div>
+<span>14:00</span> – Trauung
+</div>
+
+<div>
+<span>15:00</span> – Sektempfang
+</div>
+
+<div>
+<span>18:00</span> – Abendessen
+</div>
+
+<div>
+<span>19:30</span> – Reden
+</div>
+
+<div>
+<span>21:00</span> – Party
+</div>
+
+</div>
+
+</section>
+
+<section class="fade">
+
+<h2>Das Brautpaar</h2>
+
+<div class="card couple">
+
+<p>
+
+Unsere Geschichte begann vor einigen Jahren bei einem zufälligen Treffen in einem kleinen Café.  
+Was als Gespräch über Kaffee begann, entwickelte sich schnell zu einer gemeinsamen Reise voller Abenteuer, Lachen und unvergesslicher Momente.
+
+</p>
+
+<p>
+
+Heute freuen wir uns darauf, unser nächstes Kapitel gemeinsam mit euch zu beginnen und diesen besonderen Tag mit unseren liebsten Menschen zu feiern.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="fade">
+
+<h2>Trauzeugen</h2>
+
+<div class="witnesses">
+
+<div class="card witness">
+<h3>Lisa</h3>
+<p>Trauzeugin</p>
+<p>Beste Freundin der Braut und Organisationsprofi.</p>
+</div>
+
+<div class="card witness">
+<h3>Daniel</h3>
+<p>Trauzeuge</p>
+<p>Bruder des Bräutigams und zuständig für gute Stimmung.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="fade">
+
+<h2>Wichtige Infos</h2>
+
+<div class="card">
+
+<ul class="info-list">
+
+<li><strong>Dresscode:</strong> Festlich / Sommerlich elegant</li>
+
+<li><strong>Parken:</strong> Kostenlose Parkplätze direkt an der Location</li>
+
+<li><strong>Übernachten:</strong> Hotel Sonnental & Gästehaus am Park</li>
+
+<li><strong>Geschenke:</strong> Wir freuen uns über einen Beitrag zu unserer Hochzeitsreise.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="fade">
+
+<h2>Zusage</h2>
+
+<div class="card rsvp">
+
+<p>Bitte gebt uns bis zum 01.05.2027 Bescheid, ob ihr dabei sein könnt.</p>
+
+<button onclick="alert('RSVP Formular kann hier eingebunden werden')">
+Teilnahme bestätigen
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+Mit Liebe erstellt · Unsere Hochzeit
+
+</footer>
+
+<script>
+
+const faders = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+});
+
+faders.forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+</html>
