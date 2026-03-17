@@ -182,6 +182,7 @@ transform:translateY(0);
 <body>
 
 <section class="hero">
+<div id="countdown"></div>
 <div class="hero-content">
 <h1>Anna & Max</h1>
 <p>12. Juni 2027</p>
@@ -310,7 +311,7 @@ Heute freuen wir uns darauf, unser nächstes Kapitel gemeinsam mit euch zu begin
 
 <div class="card rsvp">
 
-<p>Bitte gebt uns bis zum 01.05.2027 Bescheid, ob ihr dabei sein könnt.</p>
+<p>Bitte gebt uns bis zum 01.04.2026 Bescheid, ob ihr dabei sein könnt.</p>
 
 <button onclick="alert('RSVP Formular kann hier eingebunden werden')">
 Teilnahme bestätigen
@@ -348,5 +349,30 @@ faders.forEach(el => observer.observe(el));
 
 </script>
 
+  <script>
+
+const weddingDate = new Date("June 12, 2027 14:00:00").getTime();
+
+const countdown = setInterval(function() {
+
+const now = new Date().getTime();
+const distance = weddingDate - now;
+
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+document.getElementById("countdown").innerHTML =
+days + " Tage " + hours + " Stunden " + minutes + " Minuten";
+
+if (distance < 0) {
+clearInterval(countdown);
+document.getElementById("countdown").innerHTML = "Heute ist unser großer Tag!";
+}
+
+}, 1000);
+
+</script>
+  
 </body>
 </html>
