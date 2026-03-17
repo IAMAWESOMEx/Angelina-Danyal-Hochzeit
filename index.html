@@ -3,177 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unsere Hochzeit</title>
+
+<title>Angelina & Danyal – Hochzeit</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:Inter,sans-serif;background:#faf8f4;color:#333;}
 
-body{
-font-family:Inter, sans-serif;
-background:#faf8f4;
-color:#333;
-line-height:1.6;
+nav{
+position:fixed;top:0;width:100%;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+display:flex;justify-content:center;gap:25px;
+padding:15px;z-index:999;font-size:14px;
 }
-
-section{
-padding:80px 20px;
-max-width:1000px;
-margin:auto;
-}
-
-h1,h2{
-font-family:"Playfair Display", serif;
-font-weight:600;
-}
-
-h1{
-font-size:3rem;
-}
-
-h2{
-font-size:2rem;
-margin-bottom:25px;
-text-align:center;
-}
-
-p{
-margin-bottom:15px;
-}
+nav a{text-decoration:none;color:#333;font-weight:500;}
 
 .hero{
-height:90vh;
-background:url("hero.jpg") center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-position:relative;
+height:100vh;
+background:url("hero.jpg") center/cover fixed no-repeat;
+display:flex;align-items:center;justify-content:center;
+text-align:center;color:white;position:relative;
 }
-
 .hero::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;
+content:"";position:absolute;top:0;left:0;right:0;bottom:0;
 background:rgba(0,0,0,0.35);
 }
+.hero-content{position:relative;z-index:2;}
+.hero h1{font-family:"Playfair Display";font-size:4rem;}
 
-.hero-content{
-position:relative;
-z-index:2;
-}
+#countdown{margin-top:20px;font-size:1.2rem;}
 
-.hero h1{
-font-size:4rem;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:1.2rem;
-}
+section{padding:100px 20px;max-width:1000px;margin:auto;}
+h2{font-family:"Playfair Display";text-align:center;margin-bottom:40px;}
 
 .card{
-background:white;
-padding:35px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-margin-bottom:30px;
+background:white;padding:35px;border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.timeline{
-border-left:2px solid #d6cfc2;
-padding-left:25px;
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{
+content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:#d6cfc2;
 }
-
-.timeline div{
-margin-bottom:20px;
+.timeline-item{position:relative;margin-bottom:25px;}
+.timeline-item::before{
+content:"";position:absolute;left:-22px;top:5px;width:12px;height:12px;
+background:#7d8a74;border-radius:50%;
 }
+.time{font-weight:600;color:#7d8a74;}
 
-.timeline span{
-font-weight:600;
-color:#7d8a74;
+.gallery{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
 }
-
-.couple{
-text-align:center;
-max-width:700px;
-margin:auto;
+.gallery img{
+width:100%;height:220px;object-fit:cover;border-radius:10px;
 }
 
 .witnesses{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
+display:grid;grid-template-columns:1fr 1fr;gap:30px;
 }
 
-.witness{
-text-align:center;
-}
-
-.info-list{
-list-style:none;
-}
-
-.info-list li{
-margin-bottom:10px;
-}
-
-.rsvp{
-text-align:center;
-}
-
-button{
-background:#7d8a74;
-border:none;
-padding:12px 25px;
+.whatsapp-btn{
+display:inline-block;
+margin-top:10px;
+background:#25D366;
 color:white;
-font-size:16px;
+padding:8px 15px;
 border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:#6b7662;
-}
-
-footer{
-text-align:center;
-padding:40px;
+text-decoration:none;
 font-size:14px;
-color:#777;
 }
+
+form{display:flex;flex-direction:column;gap:15px;}
+input,select,textarea{
+padding:12px;border-radius:5px;border:1px solid #ddd;
+}
+button{
+background:#7d8a74;color:white;border:none;padding:12px;cursor:pointer;
+}
+
+.calendar-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#7d8a74;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+
+.fade{opacity:0;transform:translateY(20px);transition:0.8s;}
+.fade.visible{opacity:1;transform:translateY(0);}
 
 @media(max-width:700px){
-
-.hero h1{
-font-size:2.5rem;
-}
-
-.witnesses{
-grid-template-columns:1fr;
-}
-
-}
-
-.fade{
-opacity:0;
-transform:translateY(20px);
-transition:all 0.8s ease;
-}
-
-.fade.visible{
-opacity:1;
-transform:translateY(0);
+.hero h1{font-size:2.5rem;}
+.witnesses{grid-template-columns:1fr;}
 }
 
 </style>
@@ -181,198 +110,171 @@ transform:translateY(0);
 
 <body>
 
+<nav>
+<a href="#details">Details</a>
+<a href="#ablauf">Ablauf</a>
+<a href="#paar">Wir</a>
+<a href="#info">Infos</a>
+<a href="#rsvp">Zusage</a>
+</nav>
+
 <section class="hero">
-<div id="countdown"></div>
 <div class="hero-content">
-<h1>Anna & Max</h1>
-<p>12. Juni 2027</p>
+<h1>Angelina & Danyal</h1>
+<p>20. Juni 2026</p>
 <p>Wir freuen uns sehr, diesen besonderen Tag mit euch zu feiern.</p>
+<div id="countdown"></div>
+
+<a class="calendar-btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Hochzeit+Angelina+%26+Danyal&dates=20260620T100000Z/20260620T220000Z&location=Brohl-Lützing">
+📅 Zum Kalender hinzufügen
+</a>
+
 </div>
 </section>
 
-<section class="fade">
-
+<section id="details" class="fade">
 <h2>Hochzeitsdetails</h2>
 
 <div class="card">
 
-<p><strong>Location:</strong> Gutshof Sonnental</p>
-<p><strong>Adresse:</strong> Sonnenweg 10, 12345 Musterstadt</p>
-<p><strong>Beginn:</strong> 14:00 Uhr</p>
+<p><strong>Standesamt:</strong><br>
+Bachstraße 11, 53498 Bad Breisig</p>
 
 <p>
-<a href="#" target="_blank">Google Maps öffnen</a>
+<a href="https://www.google.com/maps/search/?api=1&query=Bachstraße+11+53498+Bad+Breisig" target="_blank">📍 Google Maps</a><br>
+<a href="https://maps.apple.com/?q=Bachstraße+11+53498+Bad+Breisig" target="_blank">🍏 Apple Karten</a>
 </p>
 
-</div>
+<hr style="margin:25px 0;">
 
+<p><strong>Feierlocation:</strong><br>
+Brohltalstraße 74, 56656 Brohl-Lützing</p>
+
+<p>
+<a href="https://www.google.com/maps/search/?api=1&query=Brohltalstraße+74+56656+Brohl-Lützing" target="_blank">📍 Google Maps</a><br>
+<a href="https://maps.apple.com/?q=Brohltalstraße+74+56656+Brohl-Lützing" target="_blank">🍏 Apple Karten</a>
+</p>
+
+<iframe src="https://maps.google.com/maps?q=Brohltalstraße%2074%2056656%20Brohl-Lützing&output=embed" width="100%" height="300"></iframe>
+
+</div>
 </section>
 
-<section class="fade">
-
+<section id="ablauf" class="fade">
 <h2>Tagesablauf</h2>
 
 <div class="card timeline">
 
-<div>
-<span>14:00</span> – Trauung
-</div>
-
-<div>
-<span>15:00</span> – Sektempfang
-</div>
-
-<div>
-<span>18:00</span> – Abendessen
-</div>
-
-<div>
-<span>19:30</span> – Reden
-</div>
-
-<div>
-<span>21:00</span> – Party
-</div>
+<div class="timeline-item"><span class="time">12:00</span> – Trauung</div>
+<div class="timeline-item"><span class="time">13:00</span> – Sektempfang & Fotos</div>
+<div class="timeline-item"><span class="time">14:30</span> – Empfang Location</div>
+<div class="timeline-item"><span class="time">15:00</span> – Kaffee & Torte</div>
+<div class="timeline-item"><span class="time">17:30</span> – Reden</div>
+<div class="timeline-item"><span class="time">18:00</span> – Abendessen</div>
+<div class="timeline-item"><span class="time">ab 20:00</span> – Party</div>
 
 </div>
-
 </section>
 
-<section class="fade">
-
+<section id="paar" class="fade">
 <h2>Das Brautpaar</h2>
-
-<div class="card couple">
-
-<p>
-
-Unsere Geschichte begann vor einigen Jahren bei einem zufälligen Treffen in einem kleinen Café.  
-Was als Gespräch über Kaffee begann, entwickelte sich schnell zu einer gemeinsamen Reise voller Abenteuer, Lachen und unvergesslicher Momente.
-
-</p>
-
-<p>
-
-Heute freuen wir uns darauf, unser nächstes Kapitel gemeinsam mit euch zu beginnen und diesen besonderen Tag mit unseren liebsten Menschen zu feiern.
-
-</p>
-
+<div class="card">
+<p>Hier eure persönliche Geschichte einfügen.</p>
 </div>
-
 </section>
 
 <section class="fade">
+<h2>Unsere Momente</h2>
+<div class="gallery">
+<img src="https://picsum.photos/400/300">
+<img src="https://picsum.photos/401/300">
+<img src="https://picsum.photos/402/300">
+<img src="https://picsum.photos/403/300">
+</div>
+</section>
 
+<section class="fade">
 <h2>Trauzeugen</h2>
 
 <div class="witnesses">
 
-<div class="card witness">
-<h3>Lisa</h3>
-<p>Trauzeugin</p>
-<p>Beste Freundin der Braut und Organisationsprofi.</p>
+<div class="card">
+<h3>Braut</h3>
+<p>Maria Lückenbach</p>
+<a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
+<p>Kilian Scherhag</p>
+<a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
 </div>
 
-<div class="card witness">
-<h3>Daniel</h3>
-<p>Trauzeuge</p>
-<p>Bruder des Bräutigams und zuständig für gute Stimmung.</p>
+<div class="card">
+<h3>Bräutigam</h3>
+<p>Sascha Haase</p>
+<a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
+<p>Alaedin Akdim</p>
+<a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
 </div>
 
 </div>
 
 </section>
 
-<section class="fade">
-
+<section id="info" class="fade">
 <h2>Wichtige Infos</h2>
 
 <div class="card">
-
-<ul class="info-list">
-
-<li><strong>Dresscode:</strong> Festlich / Sommerlich elegant</li>
-
-<li><strong>Parken:</strong> Kostenlose Parkplätze direkt an der Location</li>
-
-<li><strong>Übernachten:</strong> Hotel Sonnental & Gästehaus am Park</li>
-
-<li><strong>Geschenke:</strong> Wir freuen uns über einen Beitrag zu unserer Hochzeitsreise.</li>
-
-</ul>
-
+<p><strong>Dresscode:</strong> Sommerlich elegant</p>
+<p><strong>Parken:</strong> Vor Ort möglich</p>
+<p><strong>Geschenke:</strong> Beitrag zur Hochzeitsreise</p>
 </div>
-
 </section>
 
-<section class="fade">
-
+<section id="rsvp" class="fade">
 <h2>Zusage</h2>
 
-<div class="card rsvp">
+<div class="card">
 
-<p>Bitte gebt uns bis zum 01.04.2026 Bescheid, ob ihr dabei sein könnt.</p>
+<p>Bitte gebt uns bis zum <strong>15.04.2026</strong> Bescheid.</p>
 
-<button onclick="alert('RSVP Formular kann hier eingebunden werden')">
-Teilnahme bestätigen
-</button>
+<form action="HIER_DEIN_GOOGLE_SCRIPT_LINK" method="POST">
+<input name="name" placeholder="Name" required>
+<input name="email" placeholder="Email">
+<select name="attending">
+<option>Ich komme gerne</option>
+<option>Leider verhindert</option>
+</select>
+<textarea name="message" placeholder="Nachricht"></textarea>
+<button type="submit">Antwort senden</button>
+</form>
 
 </div>
-
 </section>
-
-<footer>
-
-Mit Liebe erstellt · Unsere Hochzeit
-
-</footer>
 
 <script>
 
-const faders = document.querySelectorAll(".fade");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("visible");
-
-}
-
+const faders=document.querySelectorAll(".fade");
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add("visible");}
 });
-
 });
+faders.forEach(el=>observer.observe(el));
 
-faders.forEach(el => observer.observe(el));
+const weddingDate=new Date("June 20, 2026 12:00:00").getTime();
+
+setInterval(function(){
+const now=new Date().getTime();
+const dist=weddingDate-now;
+
+const d=Math.floor(dist/(1000*60*60*24));
+const h=Math.floor((dist%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((dist%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML=
+d+" Tage "+h+" Stunden "+m+" Minuten";
+
+},1000);
 
 </script>
 
-  <script>
-
-const weddingDate = new Date("June 12, 2027 14:00:00").getTime();
-
-const countdown = setInterval(function() {
-
-const now = new Date().getTime();
-const distance = weddingDate - now;
-
-const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-document.getElementById("countdown").innerHTML =
-days + " Tage " + hours + " Stunden " + minutes + " Minuten";
-
-if (distance < 0) {
-clearInterval(countdown);
-document.getElementById("countdown").innerHTML = "Heute ist unser großer Tag!";
-}
-
-}, 1000);
-
-</script>
-  
 </body>
 </html>
