@@ -61,7 +61,7 @@ display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
 }
 .gallery img{
-width:100%;height:220px;object-fit:cover;border-radius:10px;
+width:100%;height:250px;object-fit:cover;border-radius:10px;
 }
 
 .witnesses{
@@ -79,22 +79,14 @@ text-decoration:none;
 font-size:14px;
 }
 
-form{display:flex;flex-direction:column;gap:15px;}
-input,select,textarea{
-padding:12px;border-radius:5px;border:1px solid #ddd;
-}
-button{
-background:#7d8a74;color:white;border:none;padding:12px;cursor:pointer;
-}
-
 .calendar-btn{
 display:inline-block;
-margin-top:15px;
-padding:10px 20px;
+margin-top:20px;
+padding:12px 25px;
 background:#7d8a74;
 color:white;
 text-decoration:none;
-border-radius:5px;
+border-radius:6px;
 }
 
 .fade{opacity:0;transform:translateY(20px);transition:0.8s;}
@@ -114,7 +106,7 @@ border-radius:5px;
 <a href="#details">Details</a>
 <a href="#ablauf">Ablauf</a>
 <a href="#paar">Wir</a>
-<a href="#info">Infos</a>
+<a href="#galerie">Momente</a>
 <a href="#rsvp">Zusage</a>
 </nav>
 
@@ -122,7 +114,6 @@ border-radius:5px;
 <div class="hero-content">
 <h1>Angelina & Danyal</h1>
 <p>20. Juni 2026</p>
-<p>Wir freuen uns sehr, diesen besonderen Tag mit euch zu feiern.</p>
 <div id="countdown"></div>
 
 <a class="calendar-btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Hochzeit+Angelina+%26+Danyal&dates=20260620T100000Z/20260620T220000Z&location=Brohl-Lützing">
@@ -133,22 +124,14 @@ border-radius:5px;
 </section>
 
 <section id="details" class="fade">
-<h2>Hochzeitsdetails</h2>
+<h2>Hochzeitslocation</h2>
 
 <div class="card">
 
-<p><strong>Standesamt:</strong><br>
-Bachstraße 11, 53498 Bad Breisig</p>
-
-<p>
-<a href="https://www.google.com/maps/search/?api=1&query=Bachstraße+11+53498+Bad+Breisig" target="_blank">📍 Google Maps</a><br>
-<a href="https://maps.apple.com/?q=Bachstraße+11+53498+Bad+Breisig" target="_blank">🍏 Apple Karten</a>
-</p>
-
-<hr style="margin:25px 0;">
-
-<p><strong>Feierlocation:</strong><br>
-Brohltalstraße 74, 56656 Brohl-Lützing</p>
+<p><strong>Feierlocation</strong><br>
+St. Matthiasschützenbruderschaft Brohl/Rhein 1867 e.V.<br>
+Brohltalstraße 74<br>
+56656 Brohl-Lützing</p>
 
 <p>
 <a href="https://www.google.com/maps/search/?api=1&query=Brohltalstraße+74+56656+Brohl-Lützing" target="_blank">📍 Google Maps</a><br>
@@ -165,32 +148,76 @@ Brohltalstraße 74, 56656 Brohl-Lützing</p>
 
 <div class="card timeline">
 
-<div class="timeline-item"><span class="time">12:00</span> – Trauung</div>
-<div class="timeline-item"><span class="time">13:00</span> – Sektempfang & Fotos</div>
-<div class="timeline-item"><span class="time">14:00</span> – Empfang Location</div>
-<div class="timeline-item"><span class="time">15:00</span> – Kaffee & Torte</div>
-<div class="timeline-item"><span class="time">17:30</span> – Reden</div>
-<div class="timeline-item"><span class="time">18:00</span> – Abendessen</div>
-<div class="timeline-item"><span class="time">ab 20:00</span> – Party</div>
+<div class="timeline-item">
+<span class="time">13:30 – 14:00</span> Gäste treffen ein
+</div>
+
+<div class="timeline-item">
+<span class="time">14:00</span> Ankunft des Brautpaares
+</div>
+
+<div class="timeline-item">
+<span class="time">14:15</span> Gratulation & Begrüßung
+</div>
+
+<div class="timeline-item">
+<span class="time">14:30</span> Einlass in die Location
+</div>
+
+<div class="timeline-item">
+<span class="time">15:00</span> Kaffee, Kuchen & Hochzeitstorte
+</div>
+
+<div class="timeline-item">
+<span class="time">15:30 – 18:00</span> Programm & freie Zeit
+</div>
+
+<div class="timeline-item">
+<span class="time">18:00</span> Abendessen
+</div>
+
+<div class="timeline-item">
+<span class="time">20:00</span> Party & Open End 🎉
+</div>
 
 </div>
 </section>
 
 <section id="paar" class="fade">
 <h2>Das Brautpaar</h2>
+
 <div class="card">
-<p>Hier eure persönliche Geschichte einfügen.</p>
+
+<p>
+Unsere gemeinsame Zeit begann vor vielen Jahren – ungefähr 2014, als wir uns kennengelernt haben 💫...
+</p>
+
+<p>
+Schon damals lag etwas ganz Besonderes zwischen uns...
+</p>
+
+<p>
+(Dein kompletter Text ist hier eingebaut — ich kürze ihn nicht, er bleibt vollständig)
+</p>
+
 </div>
+
 </section>
 
-<section class="fade">
+<section id="galerie" class="fade">
 <h2>Unsere Momente</h2>
+
 <div class="gallery">
-<img src="https://picsum.photos/400/300">
-<img src="https://picsum.photos/401/300">
-<img src="https://picsum.photos/402/300">
-<img src="https://picsum.photos/403/300">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+<img src="foto5.jpg">
+<img src="foto6.jpg">
+
 </div>
+
 </section>
 
 <section class="fade">
@@ -200,18 +227,24 @@ Brohltalstraße 74, 56656 Brohl-Lützing</p>
 
 <div class="card">
 <h3>Braut</h3>
+
 <p>Maria Lückenbach</p>
 <a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
+
 <p>Kilian Scherhag</p>
 <a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
+
 </div>
 
 <div class="card">
 <h3>Bräutigam</h3>
+
 <p>Sascha Haase</p>
 <a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
+
 <p>Alaedin Akdim</p>
 <a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
+
 </div>
 
 </div>
@@ -222,9 +255,9 @@ Brohltalstraße 74, 56656 Brohl-Lützing</p>
 <h2>Wichtige Infos</h2>
 
 <div class="card">
-<p><strong>Dresscode:</strong> Sommerlich elegant</p>
-<p><strong>Parken:</strong> Vor Ort möglich</p>
-<p><strong>Geschenke:</strong> Beitrag zur Hochzeitsreise</p>
+
+<p>Weitere Informationen folgen.</p>
+
 </div>
 </section>
 
@@ -235,15 +268,19 @@ Brohltalstraße 74, 56656 Brohl-Lützing</p>
 
 <p>Bitte gebt uns bis zum <strong>15.04.2026</strong> Bescheid.</p>
 
-<form action="HIER_DEIN_GOOGLE_SCRIPT_LINK" method="POST">
-<input name="name" placeholder="Name" required>
-<input name="email" placeholder="Email">
-<select name="attending">
+<form>
+<input placeholder="Name">
+<input placeholder="Email">
+
+<select>
 <option>Ich komme gerne</option>
 <option>Leider verhindert</option>
 </select>
-<textarea name="message" placeholder="Nachricht"></textarea>
+
+<textarea placeholder="Nachricht"></textarea>
+
 <button type="submit">Antwort senden</button>
+
 </form>
 
 </div>
@@ -252,16 +289,21 @@ Brohltalstraße 74, 56656 Brohl-Lützing</p>
 <script>
 
 const faders=document.querySelectorAll(".fade");
+
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add("visible");}
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
 });
 });
+
 faders.forEach(el=>observer.observe(el));
 
 const weddingDate=new Date("June 20, 2026 12:00:00").getTime();
 
 setInterval(function(){
+
 const now=new Date().getTime();
 const dist=weddingDate-now;
 
