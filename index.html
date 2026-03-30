@@ -158,7 +158,7 @@ padding:30px;
 .hero h1{font-size:2.5rem;}
 .witnesses{grid-template-columns:1fr;}
 .hero{
-background-attachment:scroll; /* fixes mobile blank issue */
+background-attachment:scroll;
 }
 }
 </style>
@@ -166,7 +166,6 @@ background-attachment:scroll; /* fixes mobile blank issue */
 
 <body>
 
-<!-- Laufender Banner -->
 <div id="info-banner"><span>Liebe Gäste, bitte gebt uns eure Rückmeldung über das Formular GANZ UNTEN am Seiten-Ende. Wir freuen uns sehr auf euch ♥</span></div>
 
 <nav>
@@ -222,106 +221,50 @@ Brohltalstraße 74<br>
 </div>
 </section>
 
-<section id="paar" class="fade">
-<h2>Das Brautpaar</h2>
-<div class="card">
-<p>Unsere gemeinsame Zeit begann vor vielen Jahren – ungefähr 2014, als wir uns kennengelernt haben 💫...</p>
-<p>Schon damals lag etwas ganz Besonderes zwischen uns...</p>
-<p>ein leises Knistern, das man nicht erklären kann, aber sofort spürt. ❤️...</p>
-<p>Am 21.07.2018 wurde unsere Liebe auf die schönste Weise vollkommen: Unser Sohn Timo kam zur Welt 👶💙...</p>
-<p>Am 04.08.2025 haben wir uns verlobt 💍❤️...</p>
-<p>Heute sind wir mehr als nur ein Paar – wir sind eine Familie 🏡💖...</p>
-<p>Und egal, was noch kommt – wir gehen unseren Weg weiter. Gemeinsam. Für immer 🤍✨.</p>
-</div>
-</section>
-
-<section id="galerie" class="fade">
-<h2>Unsere Momente</h2>
-<div class="gallery">
-<img src="foto1.jpeg">
-<img src="foto2.jpeg">
-<img src="foto3.jpeg">
-<img src="foto4.jpeg">
-</div>
-</section>
-
-<section class="fade">
-<h2>Trauzeugen</h2>
-<div class="witnesses">
-<div class="card">
-<h3>Braut</h3>
-<p>Maria Lückenbach</p><a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
-<p>Kilian Scherhag</p><a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
-</div>
-<div class="card">
-<h3>Bräutigam</h3>
-<p>Sascha Haase</p><a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
-<p>Alaedin Akdim</p><a class="whatsapp-btn" href="https://wa.me/491634441803">WhatsApp</a>
-</div>
-</div>
-</section>
-
-<section id="info" class="fade">
-<h2>Wichtige Infos</h2>
-<div class="card"><p>Weitere Informationen folgen.</p></div>
-</section>
-
 <section id="rsvp" class="fade">
 <h2>Zusage</h2>
 <div class="card">
-<p>Bitte gebt uns bis zum <strong>30.04.2026</strong> Bescheid.</p>
 
 <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwPc3A1O1OFq-N-SqkoWkkbRYxuzp2SJPbtfyrK2IKvk4_gPH-I4aqw-hRJl8abaWFz/exec" method="POST">
 
-<!-- 1 Name (Pflichtfeld) -->
 <input name="name" placeholder="Name" required>
 
-<!-- 2 Email / Telefonnummer (optional) -->
 <input name="email" placeholder="Email bzw. Telefonnummer (optional)">
 
-<!-- 3 Teilnahme (Pflichtfeld) -->
 <select name="attending" required>
 <option value="" disabled selected>Teilnahme auswählen</option>
 <option value="Ich komme gerne">Ich komme gerne</option>
 <option value="Leider verhindert">Leider verhindert</option>
 </select>
 
-<!-- 4 Gästeanzahl (Pflichtfeld) -->
-<select name="guests" required>
+<select name="guests">
 <option value="" disabled selected>Anzahl Gäste auswählen</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
 </select>
 
-<!-- 5 Musikwunsch (optional) -->
 <textarea name="music" placeholder="Musikwunsch (optional)"></textarea>
 
-<!-- 6 Gästenamen (Pflichtfeld) -->
 <textarea name="message" placeholder="Gästenamen (inkl. Kinder und Alter der Kinder)" required></textarea>
 
 <button type="submit">Antwort senden</button>
 
 </form>
+
 <div class="success-message" id="success-message">
 <h3>Vielen Dank für eure Rückmeldung ❤️</h3>
-<p>Wir freuen uns auf euch!</p>
 </div>
+
 </section>
 
 <script>
-/* Fade Animation */
-const faders=document.querySelectorAll(".fade");
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");}});
-});
-faders.forEach(el=>observer.observe(el));
 
 /* Countdown */
 const weddingDate=new Date("June 20, 2026 12:00:00").getTime();
@@ -334,7 +277,24 @@ const m=Math.floor((dist%(1000*60*60))/(1000*60));
 document.getElementById("countdown").innerHTML=d+" Tage "+h+" Stunden "+m+" Minuten";
 },1000);
 
-/* RSVP Submit */
+/* Gäste Logik */
+const attending = document.querySelector('select[name="attending"]');
+const guests = document.querySelector('select[name="guests"]');
+
+attending.addEventListener("change", function() {
+
+if(this.value==="Leider verhindert"){
+guests.required=false;
+guests.disabled=true;
+guests.value="";
+}else{
+guests.required=true;
+guests.disabled=false;
+}
+
+});
+
+/* RSVP */
 document.getElementById("rsvp-form").addEventListener("submit", function(e){
 e.preventDefault();
 var form=this;
@@ -343,9 +303,9 @@ fetch(form.action,{method:"POST",body:data})
 .then(()=>{
 form.style.display="none";
 document.getElementById("success-message").style.display="block";
-setTimeout(function(){window.location.href="#";},3000);
 });
 });
+
 </script>
 
 </body>
