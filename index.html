@@ -272,21 +272,43 @@ Brohltalstraße 74<br>
 <p>Bitte gebt uns bis zum <strong>30.04.2026</strong> Bescheid.</p>
 
 <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwPc3A1O1OFq-N-SqkoWkkbRYxuzp2SJPbtfyrK2IKvk4_gPH-I4aqw-hRJl8abaWFz/exec" method="POST">
+
+<!-- 1 Name (Pflichtfeld) -->
 <input name="name" placeholder="Name" required>
+
+<!-- 2 Email / Telefonnummer (optional) -->
 <input name="email" placeholder="Email bzw. Telefonnummer (optional)">
-<select name="attending">
-<option value="">Teilnahme auswählen</option>
+
+<!-- 3 Teilnahme (Pflichtfeld) -->
+<select name="attending" required>
+<option value="" disabled selected>Teilnahme auswählen</option>
 <option value="Ich komme gerne">Ich komme gerne</option>
 <option value="Leider verhindert">Leider verhindert</option>
+</select>
+
+<!-- 4 Gästeanzahl (Pflichtfeld) -->
 <select name="guests" required>
 <option value="" disabled selected>Anzahl Gäste auswählen</option>
-<option value="">Anzahl Gäste </option> <option>1</option><option>2</option><option>3</option> <option>4</option><option>5</option><option>6</option> <option>7</option><option>8</option><option>9</option> </select>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
 </select>
-<textarea name="music" placeholder="Musikwunsch (optional)"></textarea>
-<textarea name="message" placeholder="Gästenamen (inkl. Kinder)"required></textarea>
-<button type="submit">Antwort senden</button>
-</form>
 
+<!-- 5 Musikwunsch (optional) -->
+<textarea name="music" placeholder="Musikwunsch (optional)"></textarea>
+
+<!-- 6 Gästenamen (Pflichtfeld) -->
+<textarea name="message" placeholder="Gästenamen (inkl. Kinder und Alter der Kinder)" required></textarea>
+
+<button type="submit">Antwort senden</button>
+
+</form>
 <div class="success-message" id="success-message">
 <h3>Vielen Dank für eure Rückmeldung ❤️</h3>
 <p>Wir freuen uns auf euch!</p>
