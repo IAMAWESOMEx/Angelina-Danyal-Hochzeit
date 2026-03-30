@@ -288,16 +288,29 @@ Und egal, was noch kommt – wir gehen unseren Weg weiter. Gemeinsam. Für immer
 
 <p>Bitte gebt uns bis zum <strong>15.04.2026</strong> Bescheid.</p>
 
-<form>
-<input placeholder="Name">
-<input placeholder="Email">
+<form action="https://script.google.com/macros/s/AKfycbwPc3A1O1OFq-N-SqkoWkkbRYxuzp2SJPbtfyrK2IKvk4_gPH-I4aqw-hRJl8abaWFz/exec" method="POST">
+<input name="name" placeholder="Name" required>
 
-<select>
-<option>Ich komme gerne</option>
-<option>Leider verhindert</option>
+<input name="email" placeholder="Email (optional)">
+
+<select name="attending">
+<option value="">Teilnahme auswählen</option>
+<option value="Ich komme gerne">Ich komme gerne</option>
+<option value="Leider verhindert">Leider verhindert</option>
 </select>
 
-<textarea placeholder="Nachricht"></textarea>
+<select name="guests">
+<option value="">Anzahl Gäste (optional)</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+
+<textarea name="music" placeholder="Musikwunsch (optional)"></textarea>
+
+<textarea name="message" placeholder="Nachricht (optional)"></textarea>
 
 <button type="submit">Antwort senden</button>
 
