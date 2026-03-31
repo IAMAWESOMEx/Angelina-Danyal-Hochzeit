@@ -115,7 +115,10 @@ padding:12px 25px;
 background:#7d8a74;
 color:white;
 text-decoration:none;
+border:none;
 border-radius:6px;
+cursor:pointer;
+font-size:16px;
 }
 
 /* Animation Fade */
@@ -153,12 +156,51 @@ text-align:center;
 padding:30px;
 }
 
+/* Neue CSS Ergänzung für Kalender-Menü */
+.calendar-wrapper{
+position:relative;
+display:inline-block;
+}
+
+.calendar-menu{
+position:absolute;
+top:60px;
+left:50%;
+transform:translateX(-50%);
+background:white;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+border-radius:10px;
+padding:10px;
+display:none;
+flex-direction:column;
+min-width:220px;
+z-index:999;
+}
+
+.calendar-menu a{
+display:block;
+padding:12px;
+text-decoration:none;
+color:#333;
+border-radius:6px;
+font-size:14px;
+}
+
+.calendar-menu a:hover{
+background:#f3f3f3;
+}
+
+.calendar-menu.show{
+display:block;
+}
+
 /* Mobile */
 @media(max-width:700px){
 .hero h1{font-size:2.5rem;}
 .witnesses{grid-template-columns:1fr;}
 .hero{
-background-attachment:scroll; /* fixes mobile blank issue */
+background-attachment:scroll;
+/* fixes mobile blank issue */
 }
 }
 </style>
@@ -183,9 +225,19 @@ background-attachment:scroll; /* fixes mobile blank issue */
 <p>20. Juni 2026</p>
 <div id="countdown"></div>
 
-<a class="calendar-btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Hochzeit+Angelina+%26+Danyal&dates=20260620T114500Z/20260620T220000Z&location=Brohltalstraße+36+56656+Brohl-Lützing">
-📅 Zum Kalender hinzufügen
-</a>
+<!-- Ersetzter Hero Button mit Dropdown -->
+<div class="calendar-wrapper">
+<button class="calendar-btn" id="calendarToggle">
+📅 Termin speichern
+</button>
+
+<div class="calendar-menu" id="calendarMenu">
+<a href="hochzeit.ics" download>📱 iPhone / Apple</a>
+<a href="hochzeit.ics" download>🤖 Android</a>
+<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Hochzeit+Angelina+%26+Danyal&dates=20260620T120000/20260620T230000&location=Brohltalstraße+36+56656+Brohl-Lützing" target="_blank">📅 Google Kalender</a>
+<a href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Hochzeit%20Angelina%20%26%20Danyal&startdt=2026-06-20T12:00:00&enddt=2026-06-20T23:00:00&location=Brohltalstraße%2036%2056656%20Brohl-Lützing" target="_blank">💼 Outlook</a>
+</div>
+</div>
 
 </div>
 </section>
@@ -225,7 +277,7 @@ Brohltalstraße 36<br>
 <section id="paar" class="fade">
 <h2>Das Brautpaar</h2>
 <div class="card">
-<p>Unsere gemeinsame Zeit begann vor vielen Jahren – ungefähr 2014, als wir uns kennengelernt haben 💫...</p>
+<p>Unsere gemeinsam Zeit begann vor vielen Jahren – ungefähr 2014, als wir uns kennengelernt haben 💫...</p>
 <p>Schon damals lag etwas ganz Besonderes zwischen uns...</p>
 <p>ein leises Knistern, das man nicht erklären kann, aber sofort spürt. ❤️...</p>
 <p>Am 21.07.2018 wurde unsere Liebe auf die schönste Weise vollkommen: Unser Sohn Timo kam zur Welt 👶💙...</p>
@@ -345,6 +397,17 @@ form.style.display="none";
 document.getElementById("success-message").style.display="block";
 setTimeout(function(){window.location.href="#";},3000);
 });
+});
+
+/* Kalender Dropdown */
+document.getElementById("calendarToggle").addEventListener("click", function(){
+document.getElementById("calendarMenu").classList.toggle("show");
+});
+
+window.addEventListener("click", function(e){
+if(!e.target.matches('#calendarToggle')){
+document.getElementById("calendarMenu").classList.remove("show");
+}
 });
 </script>
 
